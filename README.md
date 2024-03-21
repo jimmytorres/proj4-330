@@ -33,4 +33,6 @@ a) Bonus Test Case:
 - You can use print statements in case you want to debug and understand the logic of the test code.
 - Please get in touch with the TAs if you face issues in using the test scripts.
 
-Special thanks to Zhichao Cao.
+
+## Acknowledgement 
+This project was designed by Prof. Zhichao Cao and his CSE 330 TAs. Special thanks to them!
