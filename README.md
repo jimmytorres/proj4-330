@@ -1,6 +1,6 @@
 # CSE330: Operating Systems 
 
-Please follow the below steps to test your Project-1 Process Management. (Due: **10th April 2024 11:59 PM**)
+Please follow the below steps to test your Project-1 Process Management. (Due: **5th April 2024 11:59 PM**)
 
 - Download the zip of this git repository.
 - Unzip the repository.
