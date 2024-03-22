@@ -55,10 +55,10 @@ int fill = 0;
 int use = 0;
 
 // TODO Define your input parameters (buffSize, prod, cons, uuid) here
-// Then use module_param to pass them from insmod command line. (--Assignment 2)
+// Then use module_param to pass them from insmod command line. (--Project 1)
 
 
-// TODO Define your semaphores here (empty, full, mutex) -- Assignment 3
+// TODO Define your semaphores here (empty, full, mutex)
 
 int producer_thread_function(void *pv)
 {
