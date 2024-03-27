@@ -148,7 +148,7 @@ void name_threads(void)
 
 static int __init thread_init_module(void)
 {
-	PCINFO("CSE330 Project-1 Kernel Module Inserted\n");
+	PCINFO("CSE330 Project-3 Kernel Module Inserted\n");
 	PCINFO("Kernel module received the following inputs: UID:%d, Buffer-Size:%d, No of Producer:%d, No of Consumer:%d", uuid, buffSize, prod, cons);
 
 	if (buffSize > 0 && (prod >= 0 && prod < 2))
@@ -232,7 +232,7 @@ static void __exit thread_exit_module(void)
 		PCINFO("The total elapsed time of all processes for UID %d is \t%llu:%llu:%llu  \n", uuid, total_time_hr, total_time_min, total_time_sec);
 	}
 
-	PCINFO("CSE330 Project 1 Kernel Module Removed\n");
+	PCINFO("CSE330 Project 3 Kernel Module Removed\n");
 }
 
 module_init(thread_init_module);
@@ -240,5 +240,5 @@ module_exit(thread_exit_module);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Your Name Here");
-MODULE_DESCRIPTION("CSE330 2023 Fall Project 1 Process Management\n");
+MODULE_DESCRIPTION("CSE330 2024 Spring Project 3 Process Management\n");
 MODULE_VERSION("0.1");
