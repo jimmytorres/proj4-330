@@ -19,6 +19,11 @@ fi
 # Check which /dev entry contains the USB device
 # NOTE: make sure your USB disk is exactly 1G or this command will not work
 dpath=/dev/`lsblk | grep 1G | cut -d ' ' -f 1`
+if [ "$dpath" == "/dev/" ];
+then
+        dpath=/dev/`lsblk | grep 1024M | cut -d ' ' -f 1`
+fi
+echo "Device ==> $dpath"
 
 # Build the kernel module and insert it with the correct device name
 pushd kmodule
