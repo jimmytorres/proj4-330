@@ -90,8 +90,11 @@ void breadoffset_using_dd(char* device, char* buffer, unsigned long size, unsign
 void bread_file_range_using_dd(char* device, unsigned long start, unsigned long end) {
     char* command = (char*) malloc(512);
     if (!command) {printf("Error: could not allocate command buffer\n"); return;}
+    // sprintf(command, 
+    //         "dd if=%s count=1 bs=%ld oflag=seek_bytes seek=%ld of=dd.txt > /dev/null 2>&1", 
+    //         device, (end-start), start);
     sprintf(command, 
-            "dd if=%s count=1 bs=%ld oflag=seek_bytes seek=%ld of=dd.txt > /dev/null 2>&1", 
+            "dd if=%s count=1 bs=%ld iflag=skip_bytes skip=%ld of=dd.txt > /dev/null 2>&1", 
             device, (end-start), start);
     // printf("Command: %s\n", command);
     system(command);

@@ -40,9 +40,15 @@ int main (int argc, char* argv[]) {
 
     // Write BLOCKSIZE*ITERATIONS worth of (random) data into the USB device using your module
     // Write the random data to the 'kmod.txt' file as well
+    unsigned long current_offset = OFFSET;
     for (int i = 0; i < ITERATIONS; i++) {
         char* msg_send = (char*) generate_random_bytes(BLOCKSIZE);
-        bwrite(msg_send, BLOCKSIZE);
+        if (OFFSET == 0) {
+            bwrite(msg_send, BLOCKSIZE);
+        } else {
+            bwriteoffset(msg_send, BLOCKSIZE, current_offset);
+            current_offset += BLOCKSIZE;
+        }
         write(fd, msg_send, BLOCKSIZE);
     }
     close_kmod();
@@ -50,7 +56,7 @@ int main (int argc, char* argv[]) {
     
     // Read the data written into the USB device using the 'dd' command
     // Write this retrieved data into the 'dd.txt' file
-    bread_file_range_using_dd(device, 0, (BLOCKSIZE*ITERATIONS));
+    bread_file_range_using_dd(device, OFFSET, (OFFSET+(BLOCKSIZE*ITERATIONS)));
 
     // Compare the results (block-by-block) to make sure it matches
     if (!compare_kmod_and_dd_files(device, BLOCKSIZE, BLOCKSIZE*ITERATIONS)) {
